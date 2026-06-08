@@ -3,10 +3,6 @@ name: 编译 APK
 on:
   push:
     branches: [ main, master ]
-    paths:
-      - 'app/**'
-      - '*.gradle.kts'
-      - 'gradle/**'
   workflow_dispatch:
 
 jobs:
@@ -22,6 +18,13 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+
+      - name: 设置 Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: 安装所需 SDK 组件
+        run: |
+          yes | sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
 
       - name: 设置 Gradle
         uses: gradle/actions/setup-gradle@v3
