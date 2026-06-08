@@ -141,7 +141,7 @@ class ToolExecutor {
                 if (maxT != null && minT != null) {
                     result += "。今天 ${minT.toInt()}~${maxT.toInt()}°C"
                 }
-                if (rainProb >= 0) {
+                if (rainProb != null && rainProb >= 0) {
                     result += "，降雨概率 $rainProb%"
                 }
             }

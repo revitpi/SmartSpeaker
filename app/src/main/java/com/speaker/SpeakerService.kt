@@ -77,7 +77,7 @@ class SpeakerService : Service() {
         }
 
         override fun onResults(results: android.os.Bundle?) {
-            val texts = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION_TEXT)
+            val texts = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
             if (!texts.isNullOrEmpty()) {
                 val text = texts[0]
                 appendLog("🎤 识别: $text")
