@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#F5F5F5">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_title"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp" />
+
+    <!-- DeepSeek Key -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/api_key_hint"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:helperText="必填，用于对话和工具调用">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/apiKeyInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textVisiblePassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 唤醒词 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/wake_word_hint"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="12dp"
+        app:helperText="说这个词唤醒音箱，默认「贾维斯」">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/wakeWordInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="贾维斯" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 新闻 Key（可选） -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/news_key_hint"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="12dp"
+        app:helperText="选填，不填则用 DeepSeek Key 尝试">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/newsKeyInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textVisiblePassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 保存按钮 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/saveKeyBtn"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="@string/save_key"
+        android:layout_marginTop="16dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:layout_marginVertical="16dp" />
+
+    <!-- 状态显示 -->
+    <TextView
+        android:id="@+id/statusText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/idle_status"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:background="@drawable/status_bg"
+        android:layout_marginBottom="12dp" />
+
+    <!-- 服务按钮 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/serviceBtn"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="@string/start_service" />
+
+    <!-- 工具提示 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tools_info"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="#666666"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/log_title"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp" />
+
+    <!-- 对话记录 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/logText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="12sp"
+            android:typeface="monospace"
+            android:lineSpacingExtra="2dp" />
+
+    </ScrollView>
+
+</LinearLayout>
